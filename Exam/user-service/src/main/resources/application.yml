@@ -1,0 +1,40 @@
+# mybatis-plus 的配置
+mybatis-plus:
+  global-config:
+    db-config:
+      update-strategy: not_null
+      id-type: auto
+server:
+  port: 8900
+spring:
+  application:
+    name: user-service
+  profiles:
+    active: dev
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${exam.host}/exam-user?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: root
+    password: ${exam.pw}
+  cloud:
+    nacos:
+      server-addr: 106.54.234.175:8848
+  redis:
+    port: 6379
+    host: 47.96.18.208
+    password: lch1234
+knife4j:
+  enable: true
+  openapi:
+    title: 用户接口文档
+    description: "用户接口文档"
+    concat: lch
+    version: v1.0.0
+    group:
+      default:
+        group-name: default
+        api-rule: package
+        api-rule-resources:
+          - cn.lch.controller
+
+
